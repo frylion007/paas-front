@@ -29,50 +29,64 @@ export const constantRouterMap = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
-    name: 'Dashboard',
-    hidden: true,
+    redirect: '/resources',
+    name: 'dashboard',
+    // hidden: true,
     children: [{
-      path: 'dashboard',
+      path: 'resources',
+      name: 'Resources',
       component: () => import('@/views/dashboard/index')
     }]
   },
-
   {
-    path: '/example',
+    path: '/resource',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
+    name: 'dashboard',
+    // hidden: true,
+    children: [{
+      path: 'resource',
+      name: 'Resource',
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: '概要', icon: 'dashboard' }
+    }]
   },
-
   {
-    path: '/form',
+    path: '/app',
     component: Layout,
     children: [
       {
-        path: 'index',
-        name: 'Form',
+        path: 'app',
+        name: 'App',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: '应用', icon: 'documentation' }
+      }
+    ]
+  },
+  {
+    path: '/ns',
+    component: Layout,
+    children: [
+      {
+        path: 'ns',
+        name: 'Ns',
+        component: () => import('@/views/form/index'),
+        meta: { title: '空间', icon: 'icon' }
       }
     ]
   },
 
+  {
+    path: '/config',
+    component: Layout,
+    children: [
+      {
+        path: 'config',
+        name: 'Config',
+        component: () => import('@/views/form/index'),
+        meta: { title: '配置', icon: 'tab' }
+      }
+    ]
+  },
   {
     path: '/nested',
     component: Layout,
